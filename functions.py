@@ -1,4 +1,6 @@
 import csv 
+RED_WINE = 'red'
+WHITE_WINE = 'white'
 def readData(csvName):
     """
     csvName --> readData --> {}
@@ -46,5 +48,29 @@ def readData(csvName):
             raise ValueError("El fichero tiene menos de 10 líneas, con valor en todos los atributos.")
 
     return result
+def split(d):
+    """ 
+    {} --> split --> ({},{})     
+    """
+    resultRed = {}
+    resultWhite = {}
+
+    redCount = 1
+    whiteCount = 1
+
+    for wine in d:
+        try:
+            if (d[wine]['type'] == WHITE_WINE) :
+                del d[wine]['type']
+                resultWhite[whiteCount] = d[wine]
+                whiteCount = whiteCount + 1
+            if (d[wine]['type'] == RED_WINE ):
+                del d[wine]['type']
+                resultRed[redCount] = d[wine]
+                redCount = redCount + 1
+        except KeyError:
+            # print("No tiene type, fue procesado anteriormente. OK")
+            pass
 
 
+    return (resultRed,resultWhite)
