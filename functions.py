@@ -90,4 +90,7 @@ def reducer(d,atributo):
 
 def silhouette(listA,listB):
     # No entiendo ... 
-    
+    print(listA)
+    print(listB)
+
+    pass    
