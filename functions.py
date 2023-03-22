@@ -88,5 +88,6 @@ def reducer(d,atributo):
             raise ValueError("No existe el atributo '" + str( atributo ) + "' en el diccionario.")
     return lista
 
-def silhouette():
+def silhouette(listA,listB):
     # No entiendo ... 
+    
