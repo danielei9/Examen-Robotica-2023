@@ -1,6 +1,7 @@
 import csv 
 RED_WINE = 'red'
 WHITE_WINE = 'white'
+
 def readData(csvName):
     """
     csvName --> readData --> {}
@@ -74,3 +75,18 @@ def split(d):
 
 
     return (resultRed,resultWhite)
+
+def reducer(d,atributo):
+    """ 
+    {}, str --> split --> ({},{})     
+    """
+    lista = []
+    for obj in d :
+        try:
+            lista.append(d[obj][atributo])
+        except KeyError:
+            raise ValueError("No existe el atributo '" + str( atributo ) + "' en el diccionario.")
+    return lista
+
+def silhouette():
+    # No entiendo ... 
